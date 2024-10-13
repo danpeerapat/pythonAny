@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Classification</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <!-- <style>
+        /* body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* ส่วนจัดเรียงซ้ายขวา */
+        .container {
+            display: flex; /* ใช้ Flexbox */
+            justify-content: space-between; /* จัดให้มีพื้นที่ว่างระหว่างองค์ประกอบ */
+            width: 80%; /* กำหนดความกว้างของ Container */
+            max-width: 1200px; /* กำหนดความกว้างสูงสุด */
+            margin: 20px 0; /* กำหนดระยะห่างบนล่าง */
+        }
+
+        /* ฝั่งซ้าย */
+        .left {
+            flex: 1; /* ใช้พื้นที่ทั้งหมดที่เหลือ */
+            text-align: left; /* จัดข้อความไปทางซ้าย */
+            margin-right: 20px; /* ระยะห่างด้านขวา */
+        }
+
+        /* ฝั่งขวา */
+        .right {
+            flex: 1; /* ใช้พื้นที่ทั้งหมดที่เหลือ */
+            text-align: left; /* จัดข้อความไปทางซ้าย */
+        }
+
+        /* ส่วนหัว */
+        h1 {
+            color: #333;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        /* ฟอร์ม */
+        form {
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            margin-bottom: 30px;
+        }
+
+        /* ปุ่ม */
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* ผลลัพธ์ */
+        .result {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .result h2 {
+            color: #ff1d1d;
+            font-size: 2em;
+            margin: 0;
+        }
+
+        /* รูปภาพ */
+        .captured-image {
+            max-width: 600px;
+            width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* การตอบสนองบนมือถือ */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            button {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .result h2 {
+                font-size: 1.5em;
+            }
+        } 
+    </style> -->
+</head>
+<body>
+    <h1>Vehicle Classification</h1>
+    <div class="container">
+        <div class="left">
+            <form method="POST">
+                <button type="submit">Capture Image</button>
+            </form>
+        </div>
+        <div class="right">
+            {% if captured_image %}
+                <div>
+                    <h3>Captured Image:</h3>
+                    <img src="{{ url_for('static', filename='uploads/captured_image_timestamp.jpg') }}" alt="Captured Image" class="captured-image">
+
+                </div>
+            {% endif %}
+        </div>
+        
+    </div>
+
+    {% if result %}
+        <div class="result">
+            <h2>{{ result }}</h2>
+        </div>
+    {% endif %}
+</body>
+</html>

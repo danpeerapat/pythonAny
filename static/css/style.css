@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: aliceblue;
+}
+
+.First-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* จัดกลางแนวตั้ง */
+    justify-content: center; /* หรือ flex-end; เพื่อจัดให้ติดขอบซ้ายหรือขวา */
+    height: 100vh;
+    text-align: center;
+    margin: 0;
+}
+
+
+.next {
+    padding: 10px;
+    border-radius: 2rem;
+}
